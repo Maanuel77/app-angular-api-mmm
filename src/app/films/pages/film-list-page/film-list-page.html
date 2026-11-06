@@ -1,0 +1,15 @@
+<section aria-labelledby="films-heading">
+  <p class="text-uppercase text-primary fw-semibold small mb-1">Star Wars API</p>
+  <h1 id="films-heading" class="page-title mb-4">Películas</h1>
+  @if (films$ | async; as response) {
+    <div class="row g-3">
+      @for (film of response.results; track film.url) {
+        <div class="col-12 col-md-6 col-xl-4"><app-film-item [film]="film" /></div>
+      } @empty {
+        <p>No hay películas disponibles.</p>
+      }
+    </div>
+  } @else {
+    <p role="status">Cargando películas…</p>
+  }
+</section>

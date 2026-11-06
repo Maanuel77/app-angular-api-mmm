@@ -1,0 +1,18 @@
+<a class="btn btn-link px-0 mb-3" routerLink="/films">← Volver a películas</a>
+@if (film$ | async; as item) {
+  <article class="card shadow-sm">
+    <div class="card-body p-4">
+      <p class="text-uppercase text-primary fw-semibold small mb-1">Episodio {{ item.episode_id }}</p>
+      <h1 class="page-title">{{ item.title }}</h1>
+      <dl class="row mt-4">
+        <dt class="col-sm-3">Director</dt><dd class="col-sm-9">{{ item.director }}</dd>
+        <dt class="col-sm-3">Productor(es)</dt><dd class="col-sm-9">{{ item.producer }}</dd>
+        <dt class="col-sm-3">Fecha de estreno</dt><dd class="col-sm-9">{{ item.release_date }}</dd>
+      </dl>
+      <h2 class="h5 mt-4">Texto de apertura</h2>
+      <p class="opening-crawl">{{ item.opening_crawl }}</p>
+    </div>
+  </article>
+} @else {
+  <p role="status">Cargando película…</p>
+}
