@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <h2 class="modal-title fs-5">Detalle del vehículo</h2>
+  <button type="button" class="btn-close" aria-label="Cerrar" (click)="activeModal.dismiss()"></button>
+</div>
+<div class="modal-body">
+  @if (vehicle$ | async; as item) {
+    <dl class="row mb-0">
+      <dt class="col-sm-5">Modelo</dt><dd class="col-sm-7">{{ item.model }}</dd>
+      <dt class="col-sm-5">Clase</dt><dd class="col-sm-7">{{ item.vehicle_class }}</dd>
+      <dt class="col-sm-5">Fabricante</dt><dd class="col-sm-7">{{ item.manufacturer }}</dd>
+      <dt class="col-sm-5">Longitud</dt><dd class="col-sm-7">{{ item.length }}</dd>
+      <dt class="col-sm-5">Coste (créditos)</dt><dd class="col-sm-7">{{ item.cost_in_credits }}</dd>
+      <dt class="col-sm-5">Tripulación</dt><dd class="col-sm-7">{{ item.crew }}</dd>
+      <dt class="col-sm-5">Pasajeros</dt><dd class="col-sm-7">{{ item.passengers }}</dd>
+      <dt class="col-sm-5">Velocidad atmosférica</dt><dd class="col-sm-7">{{ item.max_atmosphering_speed }}</dd>
+      <dt class="col-sm-5">Capacidad de carga</dt><dd class="col-sm-7">{{ item.cargo_capacity }}</dd>
+      <dt class="col-sm-5">Consumibles</dt><dd class="col-sm-7">{{ item.consumables }}</dd>
+    </dl>
+  } @else {
+    <p role="status">Cargando detalle…</p>
+  }
+</div>
+<div class="modal-footer">
+  <button class="btn btn-secondary" type="button" (click)="activeModal.close()">Cerrar</button>
+</div>

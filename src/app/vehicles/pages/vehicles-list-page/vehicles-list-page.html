@@ -5,7 +5,7 @@
     <div class="row g-3">
       @for (vehicle of response.results; track vehicle.url) {
         <div class="col-12 col-md-6 col-xl-4">
-          <app-vehicle-item [vehicle]="vehicle" />
+          <app-vehicle-item [vehicle]="vehicle" (vehicleSelected)="showVehicle($event)" />
         </div>
       } @empty {
         <p>No hay vehículos disponibles.</p>
