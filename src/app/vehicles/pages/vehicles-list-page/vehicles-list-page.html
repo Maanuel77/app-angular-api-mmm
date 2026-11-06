@@ -1,0 +1,17 @@
+<section aria-labelledby="vehicles-heading">
+  <p class="text-uppercase text-primary fw-semibold small mb-1">Star Wars API</p>
+  <h1 id="vehicles-heading" class="page-title mb-4">Vehículos</h1>
+  @if (vehicles$ | async; as response) {
+    <div class="row g-3">
+      @for (vehicle of response.results; track vehicle.url) {
+        <div class="col-12 col-md-6 col-xl-4">
+          <app-vehicle-item [vehicle]="vehicle" />
+        </div>
+      } @empty {
+        <p>No hay vehículos disponibles.</p>
+      }
+    </div>
+  } @else {
+    <p role="status">Cargando vehículos…</p>
+  }
+</section>

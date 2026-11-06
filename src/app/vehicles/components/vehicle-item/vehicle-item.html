@@ -1,0 +1,13 @@
+<article class="card h-100 shadow-sm">
+  <div class="card-body d-flex flex-column">
+    <h2 class="h5 card-title">{{ vehicle.name }}</h2>
+    <dl class="row mb-3">
+      <dt class="col-5">Modelo</dt><dd class="col-7">{{ vehicle.model }}</dd>
+      <dt class="col-5">Clase</dt><dd class="col-7">{{ vehicle.vehicle_class }}</dd>
+      <dt class="col-5">Fabricante</dt><dd class="col-7">{{ vehicle.manufacturer }}</dd>
+    </dl>
+    <button class="btn btn-outline-primary mt-auto" type="button" (click)="selectVehicle()">
+      Ver detalle
+    </button>
+  </div>
+</article>
